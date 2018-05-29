@@ -1,5 +1,5 @@
-﻿using RabbitMQPublisher;
-using RabbitMQPublisher.Interface;
+﻿using OSRabbitMQPublisher;
+using OSRabbitMQPublisher.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

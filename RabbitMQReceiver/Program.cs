@@ -10,6 +10,10 @@ namespace RabbitMQPublisher
         public static void Main(string[] args)
         {
             //var factory = new ConnectionFactory() { HostName = "10.162.65.102", UserName = "admin", Password = "8cd508e592ea965551f2ed8302929a6d" };
+            var factory = new ConnectionFactory()
+            {
+                HostName = "localhost"
+            };
             try
             {
                 Console.WriteLine(factory.Endpoint);
@@ -18,7 +22,7 @@ namespace RabbitMQPublisher
                 {
                     using (var channel = connection.CreateModel())
                     {
-                        channel.QueueDeclare(queue: "hello",
+                        channel.QueueDeclare(queue: "TestChannel",
                                              durable: false,
                                              exclusive: false,
                                              autoDelete: false,
@@ -31,7 +35,7 @@ namespace RabbitMQPublisher
                             var message = Encoding.UTF8.GetString(body);
                             Console.WriteLine(" [x] Received {0}", message);
                         };
-                        channel.BasicConsume(queue: "hello",
+                        channel.BasicConsume(queue: "TestChannel",
                                              autoAck: true,
                                              consumer: consumer);
 

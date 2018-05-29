@@ -2,7 +2,7 @@
 using System;
 using System.Text;
 
-namespace RabbitMQPublisher
+namespace OSRabbitMQPublisher
 {
     class Program
     {

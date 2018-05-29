@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RabbitMQPublisher.Interface
+namespace OSRabbitMQPublisher.Interface
 {
     public interface IMQPublisher
     {
-        void Publish(string message);
+        void Connect();
+        void CloseConnection();
+        void Publish(string message, string channelName);
     }
 }
