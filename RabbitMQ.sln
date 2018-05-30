@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQReceiver", "RabbitMQReceiver\RabbitMQReceiver.csproj", "{B11FBB4F-3BC5-441C-B801-190C88937152}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQConsumer", "RabbitMQConsumer\RabbitMQConsumer.csproj", "{B11FBB4F-3BC5-441C-B801-190C88937152}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQPublisher", "RabbitMQPublisher\RabbitMQPublisher.csproj", "{DBC12103-5C34-467B-B6FC-B60922252CCC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQPublisherClientExample", "RabbitMQPublisherClientExample\RabbitMQPublisherClientExample.csproj", "{AFDB0B79-BE77-416E-B5FE-0D5DF78B8522}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQPublisherTests", "RabbitMQPublisherTests\RabbitMQPublisherTests.csproj", "{930D99CF-68CD-4C51-A53A-99BA98AA2E77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSMessages", "OSMessages\OSMessages.csproj", "{39D216A4-FA19-42BC-ADC3-9AC92858254C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQConsumerClientExample", "RabbitMQConsumerClientExample\RabbitMQConsumerClientExample.csproj", "{DE68A55E-E6E7-4D64-93BE-73AA81940E58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{930D99CF-68CD-4C51-A53A-99BA98AA2E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{930D99CF-68CD-4C51-A53A-99BA98AA2E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{930D99CF-68CD-4C51-A53A-99BA98AA2E77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D216A4-FA19-42BC-ADC3-9AC92858254C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D216A4-FA19-42BC-ADC3-9AC92858254C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D216A4-FA19-42BC-ADC3-9AC92858254C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D216A4-FA19-42BC-ADC3-9AC92858254C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE68A55E-E6E7-4D64-93BE-73AA81940E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE68A55E-E6E7-4D64-93BE-73AA81940E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE68A55E-E6E7-4D64-93BE-73AA81940E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE68A55E-E6E7-4D64-93BE-73AA81940E58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

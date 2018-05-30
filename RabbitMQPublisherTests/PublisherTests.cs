@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using OSMessages;
 using OSRabbitMQPublisher.Implementation;
 using System;
 using Xunit;
@@ -7,8 +8,9 @@ namespace RabbitMQPublisherTests
 {
     public class PublisherTests
     {
-        private static readonly string rabbitMQUrl = "localhost:5672";
+        private static readonly string rabbitMQUrl = "http://localhost:5672";
         [Fact]
+        [Trait("Category","Constructor")]
         public void Constructor_Empty_FactoryNotInitialized()
         {
             var sut = new RabbitMQPublisher();
@@ -17,6 +19,7 @@ namespace RabbitMQPublisherTests
         }
 
         [Fact]
+        [Trait("Category", "Constructor")]
         public void Constructor_WithValue_ShouldInitFactory()
         {
             var sut = new RabbitMQPublisher(new Uri(rabbitMQUrl));
@@ -26,6 +29,7 @@ namespace RabbitMQPublisherTests
         }
 
         [Fact]
+        [Trait("Category", "Connect")]
         public void Connect_WithoutSetUrl_ShouldThrowException()
         {
             //Arrange
@@ -37,6 +41,7 @@ namespace RabbitMQPublisherTests
         }
 
         [Fact]
+        [Trait("Category", "Connect")]
         public void Connect_WithSetUrl_ShouldConnect()
         {
             //Arrange
@@ -48,6 +53,7 @@ namespace RabbitMQPublisherTests
         }
 
         [Fact]
+        [Trait("Category", "Connect")]
         public void Connect_WithAlreadyExistingConnectin_ShouldCreateConnection()
         {
             //Arrange
@@ -59,11 +65,12 @@ namespace RabbitMQPublisherTests
             sut._connection.Should().NotBeNull();
         }
 
-        [Fact] 
-        public void Publish_StringMessage_ShouldSendWithoutException()
+        [Fact]
+        [Trait("Category", "Publish")]
+        public void Publish_MessageObject_ShouldSendWithoutException()
         {
             //Arrange
-            var message = "Hello from Publish Test";
+            var message = new Message() { Text = "Hello from Publish Test" };
             var sut = new RabbitMQPublisher(new Uri(rabbitMQUrl));
             sut.Connect();
             //Act

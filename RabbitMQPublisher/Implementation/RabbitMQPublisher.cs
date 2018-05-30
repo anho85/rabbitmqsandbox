@@ -2,6 +2,8 @@
 using OSRabbitMQPublisher.Interface;
 using System;
 using System.Text;
+using OSMessages;
+using Newtonsoft.Json;
 
 namespace OSRabbitMQPublisher.Implementation
 {
@@ -22,10 +24,13 @@ namespace OSRabbitMQPublisher.Implementation
         public void SetUrl(Uri url)
         {
             _rabbitMQUrl = url;
-            _factory = new ConnectionFactory() { HostName = "localhost" };
+            CloseConnection();
+            _factory = new ConnectionFactory() { HostName = url.Host, Port = url.Port };
             _factory.AutomaticRecoveryEnabled = true;
+
         }
-        public void Publish(string message, string channelName)
+
+        public void Publish(Message message, string channelName)
         {
             using (var channel = _connection.CreateModel())
             {
@@ -34,12 +39,12 @@ namespace OSRabbitMQPublisher.Implementation
                     exclusive: false,
                     autoDelete: false,
                     arguments: null);
-                var body = Encoding.UTF8.GetBytes(message);
-
+                var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(message));
                 channel.BasicPublish(exchange: "",
                     routingKey: channelName,
                     basicProperties: null,
                     body: body);
+
             }
         }
 
