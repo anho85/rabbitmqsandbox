@@ -25,8 +25,14 @@ namespace OSRabbitMQPublisher.Implementation
         {
             _rabbitMQUrl = url;
             CloseConnection();
-            _factory = new ConnectionFactory() { HostName = url.Host, Port = url.Port };
-            _factory.AutomaticRecoveryEnabled = true;
+            _factory = new ConnectionFactory
+            {
+                //_factory.VirtualHost = "/%2frabbitmqapi%2f";
+                Uri = url,
+                //UserName = "admin",
+                //Password = "8cd508e592ea965551f2ed8302929a6d",
+                AutomaticRecoveryEnabled = true
+            };
 
         }
 

@@ -8,7 +8,9 @@ namespace RabbitMQPublisherTests
 {
     public class PublisherTests
     {
-        private static readonly string rabbitMQUrl = "http://localhost:5672";
+        private static readonly string rabbitMQUrl = "amqp://localhost:5672";
+        //private static readonly string rabbitMQUrl = "amqp://localhost:80/rabbitmqapi";
+        //private static readonly string rabbitMQUrl = "amqp://10.162.65.102:5672";
         [Fact]
         [Trait("Category","Constructor")]
         public void Constructor_Empty_FactoryNotInitialized()
@@ -70,7 +72,8 @@ namespace RabbitMQPublisherTests
         public void Publish_MessageObject_ShouldSendWithoutException()
         {
             //Arrange
-            var message = new Message() { Text = "Hello from Publish Test" };
+            var date = DateTime.Now;
+            var message = new Message() { Text = "Hello from Publish Test " + date.ToLongTimeString() };
             var sut = new RabbitMQPublisher(new Uri(rabbitMQUrl));
             sut.Connect();
             //Act

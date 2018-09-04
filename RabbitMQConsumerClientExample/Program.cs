@@ -14,7 +14,8 @@ namespace RabbitMQConsumerClientExample
         {
             try
             {
-                var uri = new Uri("http://localhost:5672");
+                //var uri = new Uri("amqp://localhost/rabbitmqapi");
+                var uri = new Uri("amqp://localhost:5672");
                 var consumer = new RabbitMQConsumer(uri);
                 Console.WriteLine(consumer.Factory.HostName + ":" + consumer.Factory.Port);
                 consumer.Connect();
